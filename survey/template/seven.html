@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    .header {
+        background-color: #00a859;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .header h1 {
+        margin: 0;
+        animation: fadeInDown 1s ease;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        animation: fadeInUp 1s ease;
+        text-align: center;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px; /* Larger font size */
+        color: #333; /* Darker shade of white */
+    }
+
+    textarea {
+        width: 100%;
+        height: 100px;
+        resize: vertical;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    .download-button {
+        background-color: #00a859;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 20px;
+        text-decoration: none;
+        display: inline-block;
+    }
+    .radio-options label {
+    display: inline-block;
+    margin-right: 10px; /* Optional: Add some spacing between the options */
+}
+
+
+    .download-button:hover {
+        background-color: #007944;
+    }
+
+    .read-document {
+        color: rgb(128, 0, 255);
+        font-size: 25px;
+        margin-top: 10px;
+    }
+
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+<body>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <div class="header">
+            <h1>Suggestions for Autonomous Syllabi of CSE </h1>
+        </div>
+        <div class="container">
+            {% if name == "student"  %}
+                <a href="#" class="download-button" id="d">Click here for document download</a>
+                <p class="read-document">Read the document before feedback</p>
+                <br><br>
+            <label>Does the syllabus covers the basics of programming?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_option" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_option" value="no">
+                    No
+                </label>
+            </div>
+            <label>
+                Does the syllabus covers the core areas of CSE domain?
+                </label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_options" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_options" value="no">
+                    No
+                </label>
+            </div>
+            <label>
+                Does the syllabus covers the current technologies?
+                </label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_optionss" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_optionss" value="no">
+                    No
+                </label>
+            </div>
+            <label> (Please specify what you feel should be changed).</label>
+            <textarea name="mission_goal" placeholder="Your answer here..."></textarea>
+            <br><br>
+            <input type="submit" class="download-button"  id="sub" value="Submit">
+
+
+
+
+
+            {% elif name == "staff" %}
+            <a href="#" class="download-button" id="d">Click here for document download</a>
+            <p class="read-document">Read the document before feedback</p>
+            <br><br>
+            <label>Does the syllabus includes the core programming concepts?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_option" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_option" value="no">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus covers the recent technologies?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_options" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_options" value="no">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus includes the thrust areas of CSE?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_optionss" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_optionss" value="no">
+                    No
+                </label>
+            </div>
+            <label> (Please specify what you feel should be changed).</label>
+            <textarea name="mission_goal" placeholder="Your answer here..."></textarea>
+            <br><br>
+            <input type="submit" class="download-button"  id="sub" value="Submit">
+
+
+
+            {% elif name == "alumni" %}
+            <a href="#" class="download-button" id="d">Click here for file download</a>
+            <p class="read-document">Read the document before feedback</p>
+            <br><br>
+            <label>Does the syllabus covers the important areas for the students?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_option" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_option" value="no">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus feasible for the students to study?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_options" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_options" value="no">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus frames in a way of increasing depth in knowledge?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_optionss" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_optionss" value="no">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus includes current technologies?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_optionss" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_optionss" value="no">
+                    No
+                </label>
+            </div>
+            <label> (Please specify what you feel should be changed).</label>
+            <textarea name="mission_goal" placeholder="Your answer here..."></textarea>
+            <br><br>
+            <input type="submit" class="download-button"  id="sub" value="Submit">
+
+
+            {% elif name == "industry" %}
+            <a href="#" class="download-button" id="d" >Click here for file download</a>
+            <p class="read-document">Read the document before feedback</p>
+            <br><br>
+            <label>Does the syllabus covers the industrial needs/expectations?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_option" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_option" value="no">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus helps the companies to train the students’ easily after on board?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_options" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_options" value="no">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus covers the main and important technical areas?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_optionss" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_optionss" value="no">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus makes the students to get easily placed?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_optionsss" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_optionsss" value="no">
+                    No
+                </label>
+            </div>
+            <label> (Please specify what you feel should be changed).</label>
+            <textarea name="mission_goal" placeholder="Your answer here..."></textarea>
+            <br><br>
+            <input type="submit" class="download-button"  id="sub" value="Submit">
+
+
+            {% elif name == "academician" %}
+            <a href="#" class="download-button" id="d">Click here for file download</a>
+            <p class="read-document">Read the document before feedback</p>
+            <br><br>
+            <label>Does the syllabus provides all the basics of CSE domain?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_option" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_option" value="no">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus covers the current trends and technologies?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_options" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_options" value="no">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus makes the students to get easily placed?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_optionss" value="yes">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_optionss" value="no">
+                    No
+                </label>
+            </div>
+            <label> (Please specify what you feel should be changed).</label>
+            <textarea name="mission_goal" placeholder="Your answer here..."></textarea>
+            <br><br>
+            <input type="submit" class="download-button"  id="sub" value="Submit">
+
+
+
+            {% elif name == "parent" %}
+            <a href="#" class="download-button">Click here for file download</a>
+            <p class="read-document">Read the document before feedback</p>
+            <a href="#" class="download-button" id="d">Click here for file download</a>
+            <p class="read-document">Read the document before feedback</p>
+            <br><br>
+            <label>Does the syllabus covers the important areas for the students?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_option" value="current_mission">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_option" value="current_mission">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus feasible for the students to study?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_options" value="current_mission">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_options" value="current_mission">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus frames in a way of increasing depth in knowledge?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_optionss" value="current_mission">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_optionss" value="current_mission">
+                    No
+                </label>
+            </div>
+            <label>Does the syllabus includes current technologies?</label>
+            <div class="radio-options">
+                <label>
+                    <input type="radio" name="mission_optionsss" value="current_mission">
+                    Yes
+                </label>
+                <label>
+                    <input type="radio" name="mission_optionsss" value="current_mission">
+                    No
+                </label>
+            </div>
+            <label> (Please specify what you feel should be changed).</label>
+            <textarea name="mission_goal" placeholder="Your answer here..."></textarea>
+            <br><br>
+            <input type="submit" class="download-button"  id="sub" value="Submit">
+            {% else %}
+                hello
+            {% endif %}
+        </div>
+    </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#d").click(function(event) {
+            event.preventDefault();
+            alert("ehl");
+
+            var fileName = "hello";
+            var csrfToken = $("[name=csrfmiddlewaretoken]").val(); // Retrieve the CSRF token from the form
+
+            $.ajax({
+                type: "POST",
+                url: "/all_files/",
+                data: {
+                    'fileName': fileName,
+                    'csrfmiddlewaretoken': csrfToken  // Include the CSRF token in the data
+                },
+                xhrFields: {
+                    responseType: 'blob'
+                },
+                success: function(response) {
+                    var blob = new Blob([response], {type: 'application/octet-stream'});
+                    var url = URL.createObjectURL(blob);
+                    var link = document.createElement('a');
+                    link.href = url;
+                    link.download = fileName + ".pdf";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                },
+                error: function() {
+                    alert("Please contact administrator");
+                }
+            });
+        });
+        $("#sub").click(function(event) {
+    event.preventDefault();
+    
+    // Get the selected values from radio buttons
+    const selectedRadio = $("input[name='mission_option']:checked").val();
+    const selectedRadios = $("input[name='mission_options']:checked").val();
+    const selectedRadioss = $("input[name='mission_optionss']:checked").val();
+    const selectedRadiosss = $("input[name='mission_optionsss']:checked").val();
+    
+    // Check if at least one radio button is selected in each group
+    if (!selectedRadio || !selectedRadios || !selectedRadioss ) {
+        alert("Please select an option in each group before submitting.");
+        return;
+    }
+    
+    // Prepare the data to send to the server
+    const formData = {
+        mission_option: selectedRadio,
+        mission_options: selectedRadios,
+        mission_optionss: selectedRadioss,
+        mission_optionsss: selectedRadiosss
+    };
+    
+    // Retrieve the CSRF token from the form
+    const csrfToken = $("[name=csrfmiddlewaretoken]").val();
+    
+    // Set up the headers with the CSRF token
+    const headers = {
+        "X-CSRFToken": csrfToken
+    };
+    
+    // Send the data to the server using AJAX with headers
+    $.ajax({
+        type: "POST",
+        url: "/send_data/", // Replace with the actual server endpoint
+        data: formData,
+        headers: headers, // Include the CSRF token in the headers
+        success: function(response) {
+            // Handle success response from the server
+            if(response.message){
+                window.location.href="seventh"
+            }
+        },
+        error: function() {
+            // Handle error
+            alert("Error submitting the form. Please try again later.");
+        }
+    });
+});
+
+    });
+
+</script>
+</html>
+
